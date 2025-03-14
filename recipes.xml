@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recipes>
+    <recipe id="1">
+        <recipeTitle>Spaghetti Aglio e Olio</recipeTitle>
+        <ingredients>
+            <ingredient>Spaghetti</ingredient>
+            <ingredient>Garlic</ingredient>
+            <ingredient>Olive Oil</ingredient>
+            <ingredient>Red Pepper Flakes</ingredient>
+        </ingredients>
+        <cookingInstructions>
+            <step>Cook spaghetti according to package directions.</step>
+            <step>Sauté garlic in olive oil with red pepper flakes.</step>
+            <step>Toss cooked spaghetti with garlic oil.</step>
+            <step>Serve immediately.</step>
+        </cookingInstructions>
+    </recipe>
+    <recipe id="2">
+        <recipeTitle>Chicken Stir-Fry</recipeTitle>
+        <ingredients>
+            <ingredient>Chicken Breast</ingredient>
+            <ingredient>Broccoli</ingredient>
+            <ingredient>Carrots</ingredient>
+            <ingredient>Soy Sauce</ingredient>
+        </ingredients>
+        <cookingInstructions>
+            <step>Cut chicken into bite-sized pieces.</step>
+            <step>Stir-fry chicken until cooked through.</step>
+            <step>Add broccoli and carrots, stir-fry until tender.</step>
+            <step>Add soy sauce and cook until sauce thickens.</step>
+        </cookingInstructions>
+    </recipe>
+    <recipe id="3">
+        <recipeTitle>Tomato Soup</recipeTitle>
+        <ingredients>
+            <ingredient>Canned Tomatoes</ingredient>
+            <ingredient>Onion</ingredient>
+            <ingredient>Garlic</ingredient>
+            <ingredient>Vegetable Broth</ingredient>
+        </ingredients>
+        <cookingInstructions>
+            <step>Sauté onion and garlic.</step>
+            <step>Add canned tomatoes and vegetable broth.</step>
+            <step>Simmer for 20 minutes.</step>
+            <step>Blend until smooth.</step>
+        </cookingInstructions>
+    </recipe>
+    <recipe id="4">
+        <recipeTitle>Chocolate Chip Cookies</recipeTitle>
+        <ingredients>
+            <ingredient>Flour</ingredient>
+            <ingredient>Butter</ingredient>
+            <ingredient>Sugar</ingredient>
+            <ingredient>Chocolate Chips</ingredient>
+        </ingredients>
+        <cookingInstructions>
+            <step>Cream butter and sugar.</step>
+            <step>Add flour and chocolate chips.</step>
+            <step>Form into cookies and bake.</step>
+            <step>Cool and enjoy.</step>
+        </cookingInstructions>
+    </recipe>
+    <recipe id="5">
+        <recipeTitle>Vegetable Curry</recipeTitle>
+        <ingredients>
+            <ingredient>Potatoes</ingredient>
+            <ingredient>Cauliflower</ingredient>
+            <ingredient>Peas</ingredient>
+            <ingredient>Curry Powder</ingredient>
+        </ingredients>
+        <cookingInstructions>
+            <step>Sauté vegetables.</step>
+            <step>Add curry powder and coconut milk.</step>
+            <step>Simmer until vegetables are tender.</step>
+            <step>Serve with rice.</step>
+        </cookingInstructions>
+    </recipe>
+</recipes>

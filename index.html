@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe List</title>
+    <script>
+        function loadXMLDoc(filename, xsltFilename, elementId) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    displayResult(this, xsltFilename, elementId);
+                    runXPathQueries(this.responseXML);
+                }
+            };
+            xhttp.open("GET", filename, true);
+            xhttp.send();
+        }
+
+        function displayResult(xml, xsltFilename, elementId) {
+            var xmlDoc = xml.responseXML;
+            var xsltDoc = new XMLHttpRequest();
+            xsltDoc.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var xsltProcessor = new XSLTProcessor();
+                    xsltProcessor.importStylesheet(this.responseXML);
+                    var resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
+                    document.getElementById(elementId).innerHTML = "";
+                    document.getElementById(elementId).appendChild(resultDocument);
+                }
+            };
+            xsltDoc.open("GET", xsltFilename, true);
+            xsltDoc.send();
+        }
+
+        function loadRecipes() {
+            loadXMLDoc("recipes.xml", "recipes.xsl", "recipeList");
+        }
+
+        function runXPathQueries(xmlDoc) {
+            // Select all recipe titles
+            let titles = xmlDoc.evaluate("/recipes/recipe/recipeTitle", xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let titleResult = "";
+            let titleNode;
+            while (titleNode = titles.iterateNext()) {
+                titleResult += titleNode.textContent + "<br>";
+            }
+            document.getElementById("titles").innerHTML = "<strong>Recipe Titles:</strong><br>" + titleResult;
+
+            // Select the ingredients for the third recipe
+            let ingredients = xmlDoc.evaluate("/recipes/recipe[3]/ingredients/ingredient", xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let ingredientResult = "";
+            let ingredientNode;
+            while (ingredientNode = ingredients.iterateNext()) {
+                ingredientResult += ingredientNode.textContent + "<br>";
+            }
+            document.getElementById("ingredients").innerHTML = "<strong>Ingredients (Recipe 3):</strong><br>" + ingredientResult;
+
+            // Present the instructions for the first recipe
+            let instructions = xmlDoc.evaluate("/recipes/recipe[1]/cookingInstructions/step", xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let instructionResult = "";
+            let instructionNode;
+            while (instructionNode = instructions.iterateNext()) {
+                instructionResult += instructionNode.textContent + "<br>";
+            }
+            document.getElementById("instructions").innerHTML = "<strong>Instructions (Recipe 1):</strong><br>" + instructionResult;
+        }
+
+    </script>
+</head>
+<body onload="loadRecipes()">
+    <div id="recipeList"></div>
+    <div id="titles"></div>
+    <div id="ingredients"></div>
+    <div id="instructions"></div>
+</body>
+</html>
